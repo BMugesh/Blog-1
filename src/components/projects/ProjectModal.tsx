@@ -49,22 +49,22 @@ export const ProjectModal = ({
         duration: 0.2,
       },
     },
-  };
+  } as const;
 
   const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
-  };
+  } as const;
 
   const imageVariants = {
     hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0, transition: { delay: 0.2 } },
-  };
+  } as const;
 
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { delay: 0.1 } },
-  };
+  } as const;
 
   const projectImages = [
     project.image,

@@ -150,7 +150,7 @@ const ParticleBackground = () => {
           />
         ))}
       </div>
-      <style jsx global>{`
+      <style>{`
         @keyframes float {
           0% {
             transform: translateY(0) rotate(0deg);

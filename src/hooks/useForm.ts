@@ -13,7 +13,7 @@ type FormFields<T extends string> = Record<T, FormField>;
 type UseFormReturn<T extends string> = {
   formData: FormFields<T>;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
-  handleSubmit: (e: FormEvent) => boolean;
+  handleSubmit: (e: FormEvent) => Promise<boolean>;
   setFieldValue: (field: T, value: string) => void;
   setFieldError: (field: T, error: string) => void;
   resetForm: () => void;
