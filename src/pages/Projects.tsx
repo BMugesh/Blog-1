@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, categories, Project } from '../data/projects';
+import LottiePlayer from '../components/ui/LottiePlayer';
 import { FiMail, FiMessageCircle } from 'react-icons/fi';
 import { ProjectCard } from '../components/projects/ProjectCard';
 import { ProjectModal } from '../components/projects/ProjectModal';
@@ -81,6 +82,18 @@ const Projects = () => {
       className="min-h-screen relative bg-gray-950 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Hero with Lottie */}
+        <div className="relative mb-10 flex items-center justify-between gap-6">
+          <div className="flex-1">
+            <motion.h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
+              Building the Future, One Project at a Time
+            </motion.h2>
+            <p className="mt-3 text-gray-300 max-w-2xl">A curated selection of experiments, products, and platforms. Explore the craft behind each build.</p>
+          </div>
+          <div className="hidden md:block w-[320px]">
+            <LottiePlayer src="/lottie/projects-hero.json" className="h-[220px]" />
+          </div>
+        </div>
         {/* Header */}
         <motion.div 
           className="text-center mb-12"

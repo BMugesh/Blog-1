@@ -4,6 +4,7 @@ import { ProjectShowcase } from '../components/about/ProjectShowcase';
 import SkillGrid from '../components/ui/SkillGrid';
 import SkillDetailModal from '../components/ui/SkillDetailModal';
 import GalaxyView from '../components/GalaxyView';
+import LottiePlayer from '../components/ui/LottiePlayer';
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -264,6 +265,52 @@ const About = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Storytelling Section with Lottie */}
+      <section className="relative py-24">
+        <div className="container mx-auto px-4 max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 mb-6"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              From Curiosity to Creation
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-300 leading-relaxed"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              I craft immersive digital experiences that blend AI, design, and engineering.
+              Each project is a narrative—starting with research, evolving through prototyping,
+              and culminating in polished, human-centered products.
+            </motion.p>
+            <div className="mt-6 grid sm:grid-cols-3 gap-4">
+              <div className="glass-panel p-4 text-center">
+                <div className="text-2xl font-semibold text-cyan-300">AI</div>
+                <div className="text-sm text-gray-400">Intelligent systems</div>
+              </div>
+              <div className="glass-panel p-4 text-center">
+                <div className="text-2xl font-semibold text-blue-300">3D</div>
+                <div className="text-sm text-gray-400">Immersive visuals</div>
+              </div>
+              <div className="glass-panel p-4 text-center">
+                <div className="text-2xl font-semibold text-purple-300">UX</div>
+                <div className="text-sm text-gray-400">Delightful flows</div>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-cyan-500/30 via-fuchsia-500/20 to-indigo-500/30 rounded-3xl" />
+            <LottiePlayer src="/lottie/innovation.json" className="w-full h-[320px] md:h-[420px]" />
+          </div>
+        </div>
+      </section>
 
       {/* Skills Section */}
       <section className="py-32 relative">

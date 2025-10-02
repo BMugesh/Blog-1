@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer';
 import Loader from './components/ui/Loader';
 import ScrollToTop from './components/ui/ScrollToTop';
 import FloatingContact from './components/ui/FloatingContact';
+import AuroraBackground from './components/ui/AuroraBackground';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
@@ -64,6 +65,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+        <AuroraBackground />
         <ScrollToTop />
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         

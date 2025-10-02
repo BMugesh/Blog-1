@@ -3,6 +3,7 @@ import { EnvelopeIcon, MapPinIcon, PhoneIcon, PaperAirplaneIcon, CheckCircleIcon
          ChatBubbleLeftRightIcon, ArrowPathIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { useState, useEffect, useRef } from 'react';
 import useForm from '../hooks/useForm';
+import LottiePlayer from '../components/ui/LottiePlayer';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import Form from '../components/ui/Form';
@@ -215,6 +216,9 @@ const Contact = () => {
                 Contact Info
               </Button>
             </motion.div>
+            <div className="mt-8 flex justify-center">
+              <LottiePlayer src="/lottie/contact-handshake.json" className="h-[160px]" />
+            </div>
           </div>
         </div>
       </section>
