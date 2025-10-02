@@ -50,6 +50,12 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
     return { rotateX, rotateY };
   };
 
+  const calculateParallax = () => {
+    const translateX = (mousePosition.x - 0.5) * 12;
+    const translateY = (mousePosition.y - 0.5) * 12;
+    return { translateX, translateY };
+  };
+
   const imageVariants = {
     hover: {
       scale: 1.05,
@@ -63,7 +69,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
   return (
     <motion.div
       ref={ref}
-      className="relative h-full overflow-hidden rounded-2xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 flex flex-col transform-gpu will-change-transform"
+      className="relative h-full overflow-hidden rounded-2xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border border-gray-200/50 dark:border-gray-700/50 shadow-lg shadow-blue-500/5 dark:shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 flex flex-col transform-gpu will-change-transform group"
       style={{
         perspective: '1000px',
         transform: isHovered
@@ -79,6 +85,10 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
       onHoverEnd={() => setIsHovered(false)}
       onClick={onClick}
     >
+      {/* Animated gradient border */}
+      <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute -inset-px rounded-2xl bg-[linear-gradient(120deg,rgba(34,211,238,0.6),rgba(99,102,241,0.6),rgba(236,72,153,0.6))] bg-[length:300%_300%] animate-gradient-slow mix-blend-screen" />
+      </div>
       {/* Project Image */}
       <div className="relative overflow-hidden h-48 w-full group">
         <motion.div
@@ -93,6 +103,11 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
           } : {
             scale: 1,
             transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
+          }}
+          // Parallax translation following cursor
+          style={{
+            x: isHovered ? calculateParallax().translateX : 0,
+            y: isHovered ? calculateParallax().translateY : 0,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-gray-900/0 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
