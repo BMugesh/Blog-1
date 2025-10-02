@@ -19,6 +19,7 @@
     "@react-three/postprocessing": "^2.13.0",
     "framer-motion": "^12.23.12",
     "lottie-react": "^2.4.1",
+    "lottie-web": "^5.12.2",
     "lucide-react": "^0.542.0",
     "postprocessing": "^6.35.4",
     "react": "^18.3.1",
