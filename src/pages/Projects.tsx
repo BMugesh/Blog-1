@@ -83,15 +83,28 @@ const Projects = () => {
     >
       <div className="max-w-7xl mx-auto">
         {/* Hero with Lottie */}
-        <div className="relative mb-10 flex items-center justify-between gap-6">
-          <div className="flex-1">
-            <motion.h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
-              Building the Future, One Project at a Time
-            </motion.h2>
-            <p className="mt-3 text-gray-300 max-w-2xl">A curated selection of experiments, products, and platforms. Explore the craft behind each build.</p>
-          </div>
-          <div className="hidden md:block w-[320px]">
-            <LottiePlayer src="/lottie/projects-hero.json" className="h-[220px]" />
+        <div className="relative mb-12 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-6 md:p-10">
+          <div className="absolute inset-0 -z-10 opacity-30 bg-[radial-gradient(circle_at_30%_20%,_rgba(34,211,238,0.15),_transparent_35%),_radial-gradient(circle_at_70%_80%,_rgba(139,92,246,0.12),_transparent_40%)]" />
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-300 text-xs uppercase tracking-wider mb-4">
+                Curated Work
+              </div>
+              <motion.h2 className="text-4xl md:text-6xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
+                Projects that Shape Ideas into Reality
+              </motion.h2>
+              <p className="mt-4 text-gray-300 max-w-2xl">
+                From AI research to production-ready products, dive into the systems, interfaces, and experiments that drive my work.
+              </p>
+            </div>
+            <div className="w-full md:w-[360px]">
+              <div className="relative">
+                <div className="absolute -inset-6 blur-3xl opacity-40 bg-gradient-to-tr from-cyan-500/40 via-fuchsia-500/30 to-indigo-500/40 rounded-3xl" />
+                <div className="relative rounded-2xl bg-white/5 border border-white/10 p-4">
+                  <LottiePlayer src="/lottie/projects-hero.json" className="h-[220px]" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/* Header */}
@@ -109,24 +122,24 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Search and Filter */}
+        {/* Search and Filter (sticky) */}
         <motion.div 
-          className="mb-12"
+          className="mb-12 sticky top-16 z-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           {/* Search Bar */}
-          <div className="relative max-w-2xl mx-auto mb-6">
+          <div className="relative max-w-3xl mx-auto mb-6">
             <input
               type="text"
               aria-label="Search projects"
               placeholder="Search projects by name, tech, or keyword..."
-              className="w-full px-5 py-3 pr-12 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all duration-300 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]"
+              className="w-full px-5 py-4 pr-12 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all duration-300 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <div className="absolute right-3 top-3 text-gray-400">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -153,7 +166,7 @@ const Projects = () => {
           </div>
 
           {/* Category Filters - Desktop */}
-          <div className="hidden md:flex justify-center gap-2 flex-wrap">
+          <div className="hidden md:flex justify-center gap-3 flex-wrap">
             {categories.map((category) => (
               <motion.button
                 key={category.id}
@@ -162,10 +175,10 @@ const Projects = () => {
                 onClick={() => setSelectedCategory(category.id === selectedCategory ? 'all' : category.id)}
                 aria-pressed={selectedCategory === category.id}
                 aria-label={`Filter by ${category.name}`}
-                className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-cyan-600 to-purple-600 text-white shadow-lg shadow-cyan-500/20'
-                    : 'bg-white/5 text-gray-300 hover:bg-white/10 backdrop-blur-xl border border-white/10'
+                    ? 'bg-gradient-to-r from-cyan-600 to-purple-600 text-white shadow-lg shadow-cyan-500/20 ring-1 ring-white/20'
+                    : 'bg-white/10 text-gray-300 hover:bg-white/15 backdrop-blur-xl border border-white/10'
                 }`}
               >
                 {category.name}
