@@ -21,7 +21,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
     hover: {
@@ -30,7 +30,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
       rotateY: 0,
       transition: {
         duration: 0.3,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
   } as const;
@@ -55,7 +55,7 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
       scale: 1.05,
       transition: {
         duration: 0.4,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
   };
@@ -89,10 +89,10 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
           variants={imageVariants}
           animate={isHovered ? {
             scale: 1.05,
-            transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+            transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
           } : {
             scale: 1,
-            transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+            transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-gray-900/0 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
