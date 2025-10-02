@@ -94,7 +94,9 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
         <motion.div
           className="absolute inset-0 bg-cover bg-center will-change-transform"
           style={{
-            backgroundImage: `url(${project.image || '/project-placeholder.jpg'})`
+            backgroundImage: `url(${project.image || '/project-placeholder.jpg'})`,
+            x: isHovered ? calculateParallax().translateX : 0,
+            y: isHovered ? calculateParallax().translateY : 0,
           }}
           variants={imageVariants}
           animate={isHovered ? {
@@ -105,10 +107,6 @@ export const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
             transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
           }}
           // Parallax translation following cursor
-          style={{
-            x: isHovered ? calculateParallax().translateX : 0,
-            y: isHovered ? calculateParallax().translateY : 0,
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-gray-900/0 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl" />
